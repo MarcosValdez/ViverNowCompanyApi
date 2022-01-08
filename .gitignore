@@ -6,3 +6,5 @@ dist
 
 # Editor directories and files
 .vscode
+
+requests

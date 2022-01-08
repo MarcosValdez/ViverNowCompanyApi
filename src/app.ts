@@ -4,15 +4,28 @@ import cors from 'cors';
 import { corsUrl, port } from './config';
 import { NotFoundError, ApiError, InternalError } from './core/ApiError';
 import routesV1 from './routes/v1';
+import remodelacionRoutes from './remodelacion';
 
 const app = express();
 
 app.use(bodyParser.json({ limit: '15mb' }));
-app.use(bodyParser.urlencoded({ limit: '15mb', extended: true, parameterLimit: 50000 }));
+app.use(
+  bodyParser.urlencoded({
+    limit: '15mb',
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
 app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
 // Routes
+
+app.get('/', function (req, res) {
+  res.json({ msg: new Date(Date.now()) });
+});
+
 app.use('/api/v1', routesV1);
+app.use('/api/v1', remodelacionRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => next(new NotFoundError()));

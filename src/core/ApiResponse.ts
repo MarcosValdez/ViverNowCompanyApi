@@ -21,10 +21,13 @@ abstract class ApiResponse {
   constructor(
     protected statusCode: StatusCode,
     protected status: ResponseStatus,
-    protected message: string,
+    protected message: string
   ) {}
 
-  protected prepare<T extends ApiResponse>(res: Response, response: T): Response {
+  protected prepare<T extends ApiResponse>(
+    res: Response,
+    response: T
+  ): Response {
     return res.status(this.status).json(ApiResponse.sanitize(response));
   }
 
@@ -105,7 +108,11 @@ export class AccessTokenErrorResponse extends ApiResponse {
   private instruction = 'refresh_token';
 
   constructor(message = 'Access token invalid') {
-    super(StatusCode.INVALID_ACCESS_TOKEN, ResponseStatus.UNAUTHORIZED, message);
+    super(
+      StatusCode.INVALID_ACCESS_TOKEN,
+      ResponseStatus.UNAUTHORIZED,
+      message
+    );
   }
 
   send(res: Response): Response {
