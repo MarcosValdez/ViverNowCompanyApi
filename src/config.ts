@@ -10,7 +10,7 @@ export const db = {
   connectionLimit: 10
 };
 
-/* export const corsUrl = process.env.CORS_URL; */
+export const corsUrl = process.env.CORS_URL;
 
 /* export const tokenInfo = {
   accessTokenValidityDays: parseInt(process.env.ACCESS_TOKEN_VALIDITY_SEC || '0'),
