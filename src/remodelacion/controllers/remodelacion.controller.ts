@@ -1,17 +1,12 @@
 import { Request, Response } from 'express';
-import { connect } from '../../database';
 
 export async function getRemodelacion(
   req: Request,
   res: Response
 ): Promise<any> {
   try {
-    const conn = await connect();
-    const response = await conn?.query(
-      'SELECT * FROM Remodelacion where remodelacion_id = ?',
-      [req.params.id]
-    );
-    return res.json(response);
+
+    
   } catch (err) {
     console.log(err);
   }
@@ -22,9 +17,7 @@ export async function getAllRemodelacion(
   res: Response
 ): Promise<any> {
   try {
-    const conn = await connect();
-    const response = await conn?.query('SELECT * FROM Remodelacion');
-    return res.json(response);
+    
   } catch (err) {
     console.log(err);
   }
@@ -35,13 +28,7 @@ export async function createRemodelacion(
   res: Response
 ): Promise<any> {
   try {
-    const { nombre } = req.body;
-    const conn = await connect();
-    const reponse = await conn?.query(
-      'insert into Remodelacion (nombre) values (?) ',
-      [nombre]
-    );
-    return res.json(reponse);
+    
   } catch (err) {
     console.log(err);
   }
@@ -53,12 +40,7 @@ export async function updateRemodelacion(
 ): Promise<any> {
   try {
     const { nombre } = req.body;
-    const conn = await connect();
-    const reponse = await conn?.query(
-      'update Remodelacion set nombre = ? where remodelacion_id = ?',
-      [nombre, req.params.id]
-    );
-    return res.json(reponse);
+    return null
   } catch (err) {
     console.log(err);
   }
@@ -69,12 +51,8 @@ export async function deleteRemodelacion(
   res: Response
 ): Promise<any> {
   try {
-    const conn = await connect();
-    const reponse = await conn?.query(
-      'delete from Remodelacion where remodelacion_id = ?',
-      [req.params.id]
-    );
-    return res.json(reponse);
+    
+    return res.json("afd");
   } catch (err) {
     console.log(err);
   }

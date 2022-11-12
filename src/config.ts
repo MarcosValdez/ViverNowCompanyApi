@@ -1,6 +1,6 @@
 // Mapper for environment variables
 /* export const environment = process.env.NODE_ENV; */
-export const port = process.env.PORT || 0;
+export const port = 8080;
 
 export const db = {
   database: process.env.DB_NAME || '',
