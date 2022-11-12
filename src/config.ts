@@ -3,14 +3,7 @@
 export const port = 8080;
 
 export const db = {
-  database: process.env.DB_NAME || '',
-  host: process.env.DB_HOST || '',
-  user: process.env.DB_USER || '',
-  password: process.env.DB_USER_PWD || '',
-  connectionLimit: 10,
 };
-
-export const corsUrl = process.env.CORS_URL;
 
 /* export const tokenInfo = {
   accessTokenValidityDays: parseInt(process.env.ACCESS_TOKEN_VALIDITY_SEC || '0'),

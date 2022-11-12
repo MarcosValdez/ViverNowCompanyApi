@@ -1,7 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { corsUrl, port } from './config';
 import { NotFoundError, ApiError, InternalError } from './core/ApiError';
 import routesV1 from './routes/v1';
 import remodelacionRoutes from './remodelacion';
@@ -16,8 +15,6 @@ app.use(
     parameterLimit: 50000,
   })
 );
-app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
-
 // Routes
 
 app.get('/fecha', function (req, res) {
