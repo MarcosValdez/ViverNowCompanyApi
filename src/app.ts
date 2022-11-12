@@ -20,7 +20,7 @@ app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
 // Routes
 
-app.get('/', function (req, res) {
+app.get('/fecha', function (req, res) {
   res.json({ msg: new Date(Date.now()) });
 });
 
